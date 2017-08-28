@@ -16,7 +16,7 @@ var VideoListEntryView = Backbone.View.extend({
   },
 
   handleClick: function (e) {
-    console.log('hi');
+    Backbone.trigger('changeVideo', this.model);
   }
 
 
