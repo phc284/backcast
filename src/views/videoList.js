@@ -2,10 +2,11 @@ var VideoListView = Backbone.View.extend({
 
   initialize: function () {
     //listen when something isi added onto the collection
-    this.collection.on('add', function () {
-      //render the view
-      this.render();
-    }, this);
+    this.listenTo(this.collection, 'add', this.render);
+    // this.collection.on('add', function () {
+    //   //render the view
+    //   this.render();
+    // }, this);
     //for a test. listen for sync and then render
     this.collection.on('sync', this.render);
   },
@@ -29,7 +30,8 @@ var VideoListView = Backbone.View.extend({
     //declaring variable for a new ListEntryView with the current video
     var videoEntry = new VideoListEntryView({model: video});
     //find where video-list class is and append the video onto the html
-    this.$el.find('.video-list').append(videoEntry.$el);
+    // this.$el.find('.video-list').append(videoEntry.$el);
+    this.$('.video-list').append(videoEntry.$el);
   }
 
 });

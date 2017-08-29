@@ -8,8 +8,6 @@ var Video = Backbone.Model.extend({
   select: function() {
     //triggering itself for a test
     this.trigger('select', this);
-    //setting video player to the video model we selected
-    Backbone.trigger('changeVideo', this);
   }
 
 });

@@ -6,14 +6,22 @@ var AppView = Backbone.View.extend({
     // this.fakeData = new Video(window.exampleVideoData ? window.exampleVideoData[0] : window.fakeVideoData[0]);
     //creating new collection of videos
     this.videos = new Videos();
+    //listen to when collection is updated and select first video
+    this.listenTo(this.videos, 'sync', this.selectFirst);
     //initializing the default search parameter
     this.videos.search('Beautiful Nature');
     //update the view to the user
     this.render();
   },
 
+  selectFirst: function () {
+    if (this.videos.length > 0) {
+      this.videos.at(0).select();
+    }
+  },
 
-  render: function(video) {
+
+  render: function() {
     //setting html to template value, which refers to app.html
     this.$el.html(this.template());
 
@@ -29,8 +37,7 @@ var AppView = Backbone.View.extend({
     new VideoPlayerView({
       //setting the element reference to where VideoPlayerView will be rendered
       el: this.$('.player'),
-      //setting the video for the video player
-      model: video
+      collection: this.videos
     }).render();
 
     //rendering the search bar to user

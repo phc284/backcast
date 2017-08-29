@@ -3,10 +3,10 @@ var SearchView = Backbone.View.extend({
   //event handler
   events: {
     //on btn click, call handleSearch function
-    'click .btn': 'handleSearch',
+    'click button': 'handleSearch',
     /*on each key type, call handleEnterSearch.
     change to handleSearch if want live search*/
-    'keyup .form-control': 'handleSearch'
+    'keyup input': 'handleSearch'
   },
 
   //get the search parameter user enters when btn is clicked

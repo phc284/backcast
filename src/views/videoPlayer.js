@@ -1,13 +1,18 @@
 var VideoPlayerView = Backbone.View.extend({
 
   initialize: function() {
-    //listens to when video is changed
-    Backbone.on('changeVideo', function (video) {
-      //setting the model to the passed in video from videos.js
+
+    this.listenTo(this.collection, 'select', function (video) {
       this.model = video;
-      //render the view
       this.render();
-    }, this);
+    });
+    // //listens to when video is changed
+    // Backbone.on('changeVideo', function (video) {
+    //   //setting the model to the passed in video from videos.js
+    //   this.model = video;
+    //   //render the view
+    //   this.render();
+    // }, this);
   },
 
   render: function() {
