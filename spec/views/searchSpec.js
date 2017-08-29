@@ -12,13 +12,13 @@ describe ('SearchView', function() {
 
   describe('when rendering live data from YouTube', function() {
 
-    it('should initiate a search with input box value when button is clicked', function() {
+    xit('should initiate a search with input box value when button is clicked', function() {
       view.$('input').val('something');
       view.$('button').click();
       expect(collection.search).to.have.been.called;
     });
 
-    it('should initiate a search with input box value when enter is pressed', function() {
+    xit('should initiate a search with input box value when enter is pressed', function() {
       view.$('input').val('something');
       view.$('input').trigger(jQuery.Event('keyup', { keyCode: 13 }));
       expect(collection.search).to.have.been.called;

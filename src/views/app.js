@@ -3,9 +3,9 @@ var AppView = Backbone.View.extend({
   el: '#app',
 
   initialize: function() {
-    this.fakeData = new Video(window.exampleVideoData ? window.exampleVideoData[0] : window.fakeVideoData[0]);
-    this.videos = new Videos(window.exampleVideoData);
-    this.videos.search('justin bieber');
+    // this.fakeData = new Video(window.exampleVideoData ? window.exampleVideoData[0] : window.fakeVideoData[0]);
+    this.videos = new Videos();
+    this.videos.search('Beautiful Nature');
     this.render(this.fakeData);
   },
 

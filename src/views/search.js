@@ -11,7 +11,7 @@ var SearchView = Backbone.View.extend({
   },
 
   handleEnterSearch: function(e) {
-    if (e.keyCode === 13) {
+    if (e.keyCode === 13 || true) {
       var searchItem = this.$el.find('input').val();
       this.collection.search(searchItem);
     }
